@@ -1,0 +1,94 @@
+/**index.wxss**/
+page {
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  background: #E86C9E;
+  color: #E86C9E;
+}
+.header {
+  width: 80%;
+  height: 200rpx;
+  margin: 0 auto 50rpx auto;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.header-text {
+  font-size: 48rpx;
+  text-align: center;
+}
+.input {
+  margin-top: 20rpx;
+  width: 80%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  display: block;
+  margin: 20rpx auto;
+  border: 1px solid #E86C9E;
+  border-radius: 10rpx;
+}
+.content {
+  width: 80%;
+  height: 550rpx;
+  background-color: #fff;
+  padding: 50rpx 20rpx 100rpx 20rpx;
+  border-radius: 10rpx;
+  overflow: scroll;
+}
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 20rpx;
+}
+.todo-item.completed .item-text{
+  text-decoration: line-through;
+}
+.checkbox {
+  color: #E86C9E;
+}
+.item-text {
+  margin-left: 20rpx;
+  flex: 1;
+}
+.control-menu {
+  margin-top:70rpx;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+
+}
+.all-complete {
+  display:flex;
+  margin-right:10rpx;
+
+}
+.checkbox {
+  color: #E86C9E;
+  margin-top: 10rpx;
+}
+.clear {
+  display: flex;
+}
+.count-items {
+  margin-right: 50rpx;
+  display: flex;
+}
+.congratulation {
+  margin-top: 100rpx;
+  display: block;
+  font-size: 48rpx;
+  text-align: center;
+}
+.empty-text{
+  display: block;
+  margin-top: 50rpx;
+  text-align: center;
+ 
+
+}
