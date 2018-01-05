@@ -72,15 +72,17 @@ page {
   flex: 1;
 }
 .control-menu {
+  width: 80%;
   margin-top:70rpx;
   display:flex;
   flex-direction:row;
   justify-content:space-between;
+  color: #fff;
 
 }
 .all-complete {
   display:flex;
-  margin-right:10rpx;
+  margin-right:30rpx;
 
 }
 .checkbox {
@@ -89,6 +91,7 @@ page {
 }
 .clear {
   display: flex;
+  margin-right:30rpx;
 }
 .count-items {
   margin-right: 50rpx;
