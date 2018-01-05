@@ -22,9 +22,24 @@ page {
   font-size: 48rpx;
   text-align: center;
 }
+.add-item-container {
+  width: 90%;
+  height: 80rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.add-btn {
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  background-color: #fff;
+  color: #E86C9E;
+  border: 1px solid #E86C9E;
+}
 .input {
   margin-top: 20rpx;
-  width: 80%;
   height: 80rpx;
   padding: 0 20rpx;
   display: block;

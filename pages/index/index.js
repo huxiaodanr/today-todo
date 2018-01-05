@@ -1,31 +1,17 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+let pressStart;
 Page({
   data: {
     inputText: '',
     todos: [],
     leftItems: 0,
-
+    isFocus: false
   },
   onLoad: function() {
     let storageTodos = wx.getStorageSync('todos');
     let storageItems = wx.getStorageSync('leftItems');
-    // let storageTodos;
-    // let storageItems;
-    // wx.getStorage({
-    //   key: 'todos',
-    //   success: function(res) {
-    //     storageTodos = res.data;
-    //   }
-    // })
-    // wx.getStorage({
-    //   key: 'storageItems',
-    //   success: function(res) {
-    //     storageItems = res.data;
-    //   }
-    // })
     if(storageTodos) {
       this.setData({
         todos: storageTodos,
@@ -46,16 +32,10 @@ Page({
     this.setData({
       inputText: '',
       todos: todos,
-      leftItems: this.data.leftItems + 1
+      leftItems: this.data.leftItems + 1,
+      isFocus: true
     });
-    // wx.setStorage({
-    //   key: 'todos',
-    //   value: todos
-    // });
-    // wx.setStorage({
-    //   key: 'leftItems',
-    //   value: this.data.leftItems
-    // });
+
     wx.setStorageSync('todos',todos);
     wx.setStorageSync('leftItems', this.data.leftItems);
   },
@@ -134,5 +114,24 @@ Page({
       todos: remain
     });
     wx.setStorageSync('todos', this.data.todos);
+  },
+  editItem: function(e) {
+    console.log('***');
+    let todos = this.data.todos;
+    let input = todos[e.currentTarget.dataset.index].name;
+    this.setData({
+      inputText: input,
+    })
+  },
+  touchStart: function(e) {
+    pressStart = e.timeStamp;
+  },
+  touchEnd: function(e) {
+    let pressTime = e.timeStamp - pressStart;
+    if(pressTime >= 350) {
+      this.setData({
+      isFocus: true
+      });
+    }
   }
 })
