@@ -9,22 +9,22 @@
   </view>
   <block wx:if="{{todos.length}}">
     <view class="content">
-      <view class="todo-item {{item.completed ? ' completed ' : ''}}"  wx:for="{{todos}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toggleTodo" bindlongpress="editItem" bindtouchstart="touchStart" bindtouchend="touchEnd">
+      <view class="todo-item {{item.completed ? ' completed ' : ''}}"  wx:for="{{todos}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toggleTodo" bindtouchstart="touchStart" bindtouchend="touchEnd" bindlongpress="editItem">
         <icon class="checkbox" size="16" type="{{item.completed ? 'success_no_circle' : 'circle'}}"></icon>
-        <view class="item-text">{{item.name}}</view>
-        <icon class="delete" type="clear" catchtap="removeItem" data-index="{{index}}"></icon>
+        <view class="item-text"  data-index="{{index}}">{{item.name}}</view>
+        <icon class="delete" type="clear" catchtap="removeItem" data-index="{{index}}" size="24"></icon>
       </view>
     </view>
     <view class="control-menu">
       <view class="all-complete" bindtap="completeAll">
-        <icon class="checkbox"  size="16" type="{{leftItems ? 'circle' : 'success_no_circle'}}" ></icon>
+        <icon class="checkbox"  size="16" type="{{leftItems ? 'circle' : 'success_no_circle'}}" color="white"></icon>
         <view class="item-text">all</view>
       </view>
       <view class="clear" bindtap="clearCompleted">
-        <icon class="checkbox" type="clear" size="16"></icon>
+        <icon class="checkbox" type="clear" size="16" color="white"></icon>
         <view class="item-text">clear</view>
       </view>
-      <view class="count-items"><text style="color: orange; display: block; width: 36rpx;">{{leftItems}}</text> has to do ~</view>
+      <view class="count-items"><text style="color: orange; display: block; width: 42rpx;">{{leftItems}}</text> has to do ~</view>
     </view>
   </block>
   <block wx:else>

@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 let pressStart;
+let touchStartTop;
 Page({
   data: {
     inputText: '',
@@ -32,8 +33,7 @@ Page({
     this.setData({
       inputText: '',
       todos: todos,
-      leftItems: this.data.leftItems + 1,
-      isFocus: true
+      leftItems: this.data.leftItems + 1
     });
 
     wx.setStorageSync('todos',todos);
@@ -125,13 +125,26 @@ Page({
   },
   touchStart: function(e) {
     pressStart = e.timeStamp;
+    touchStartTop = e.changedTouches[0].clientY;
   },
   touchEnd: function(e) {
     let pressTime = e.timeStamp - pressStart;
+    let move = e.changedTouches[0].clientY - touchStartTop;
+    if(Math.abs(move) > 5) {
+      this.setData({
+        isFocus: false
+      })
+    }
     if(pressTime >= 350) {
       this.setData({
       isFocus: true
       });
     }
+  },
+  cancelFocus: function(e) {
+    console.log('touch move');
+    this.setData({
+      isFocus: false
+    })
   }
 })
