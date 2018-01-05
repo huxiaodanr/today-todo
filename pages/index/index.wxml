@@ -14,17 +14,17 @@
         <view class="item-text">{{item.name}}</view>
         <icon class="delete" type="clear" catchtap="removeItem" data-index="{{index}}"></icon>
       </view>
-      <view class="control-menu">
-        <view class="all-complete" bindtap="completeAll">
-          <icon class="checkbox"  size="16" type="{{leftItems ? 'circle' : 'success_no_circle'}}" ></icon>
-          <view class="item-text">all</view>
-        </view>
-        <view class="clear" bindtap="clearCompleted">
-          <icon class="checkbox" type="clear" size="16"></icon>
-          <view class="item-text">clear</view>
-        </view>
-        <view class="count-items"><text style="color: orange; display: block; width: 32rpx;">{{leftItems}}</text> has to do ~</view>
+    </view>
+    <view class="control-menu">
+      <view class="all-complete" bindtap="completeAll">
+        <icon class="checkbox"  size="16" type="{{leftItems ? 'circle' : 'success_no_circle'}}" ></icon>
+        <view class="item-text">all</view>
       </view>
+      <view class="clear" bindtap="clearCompleted">
+        <icon class="checkbox" type="clear" size="16"></icon>
+        <view class="item-text">clear</view>
+      </view>
+      <view class="count-items"><text style="color: orange; display: block; width: 36rpx;">{{leftItems}}</text> has to do ~</view>
     </view>
   </block>
   <block wx:else>
